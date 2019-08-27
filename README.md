@@ -1,2 +1,0 @@
-# careinfotech.github.io
-careinfotec
