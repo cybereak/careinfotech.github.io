@@ -23,7 +23,7 @@
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
   <!-- Icon Set -->
@@ -985,13 +985,16 @@ We are there to help, we creates custom software as per your requirment.<br><br>
               
               <h4>Send us a message</h4>
               <p></p>
-              <form action="" method="post" role="form" class="contactForm">
+              <form action="https://mailthis.to/info.careinfotech@gmail.com" 
+    method="POST" class="contactForm">
                 <div class="form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                   <div class="validation"></div>
                 </div>
+                    <input type="hidden" name="_subject" value="Contact form submitted">
+    <input type="hidden" name="_after" value="https://careinfo.tech">
                 <div class="form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Contact Number" data-rule="minlen:4" data-msg="Please enter your contact number" />
+                  <input type="text" name="phone" class="form-control" id="number" placeholder="Your Contact Number" data-rule="minlen:4" data-msg="Please enter your contact number" />
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
@@ -999,11 +1002,7 @@ We are there to help, we creates custom software as per your requirment.<br><br>
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <textarea class="form-control" id="message" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                   <div class="validation"></div>
                 </div>
 
@@ -1038,6 +1037,7 @@ We are there to help, we creates custom software as per your requirment.<br><br>
   <!-- <div id="preloader"></div> -->
 
   <!-- JavaScript Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -1054,6 +1054,53 @@ We are there to help, we creates custom software as per your requirment.<br><br>
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+  <script>
+function postToGoogle() {
+                var field1 = $("#name").val();
+                var field2 = $("#email").val();
+                var field3 = $("#number").val();
+                var field4 = $("#message").val();
+        
+        if(field1 == ""){
+          alert('Please Fill Your Name');
+          document.getElementById("nameField").focus();
+          return false;
+        }
+        if(field2 == ""){
+          alert('Please Fill Your Email');
+          document.getElementById("emailField").focus();
+          return false;
+        }
+        if(field3 == "" || field3.length > 10 || field3.length < 10){
+          alert('Please Fill Your Mobile Number');
+          document.getElementById("mobField").focus();
+          return false;
+        }
+
+
+        
+  
+                $.ajax({
+                    url: "https://docs.google.com/forms/d/1N-tu_lmPhkyhg11tH_YnvtY6wykxXw8rCh7beREHMwY/formResponse?",
+          data: {"entry.2005620554": field1, "entry.1045781291": field2, "entry.1166974658": field3, "entry.1065046570": field4},
+                    type: "POST",
+                    dataType: "xml",
+                    success: function(d)
+          {
+          },
+          error: function(x, y, z)
+            {
+
+              $('#success-msg').show();
+              $('#form').hide();
+              
+            }
+                });
+        return false;
+            }
+</script>
+
+
 
 </body>
 </html>
