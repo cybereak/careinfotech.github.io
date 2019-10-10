@@ -985,32 +985,20 @@ We are there to help, we creates custom software as per your requirment.<br><br>
               
               <h4>Send us a message</h4>
               <p></p>
-              <form action="https://mailthis.to/info.careinfotech@gmail.com" 
-    method="POST" class="contactForm">
-                <div class="form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validation"></div>
-                </div>
-                    <input type="hidden" name="_subject" value="Contact form submitted">
-    <input type="hidden" name="_after" value="https://careinfo.tech">
-                <div class="form-group">
-                  <input type="text" name="phone" class="form-control" id="number" placeholder="Your Contact Number" data-rule="minlen:4" data-msg="Please enter your contact number" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" id="message" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                  <div class="validation"></div>
-                </div>
-
-                <div id="sendmessage">Your message has been sent. Thank you!</div>
-                <div id="errormessage"></div>
-
-                <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
-              </form>
+              <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/bloger.ultrajob@gmail.com" method="post">
+  <fieldset id="fs-frm-inputs">
+    <label for="full-name">Full Name</label>
+    <input class="form-control" type="text" name="name" id="full-name" placeholder="First and Last" required="">
+    <label for="email-address">Email Address</label>
+    <input class="form-control" type="email" name="email" id="email-address" placeholder="your@email.com" required="">
+       <label for="phone">Phone</label>
+    <input class="form-control" type="text" name="phone" id="phone" placeholder="+91 8989686XXX" required="">
+    <label for="message">Message</label>
+    <textarea class="form-control" rows="5" name="message" id="message" placeholder="your message." required=""></textarea>
+    <input  type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+  </fieldset>
+  <input type="submit" value="Submit">
+</form>
             </div>
 
           </div>
